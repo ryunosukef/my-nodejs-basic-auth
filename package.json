@@ -1,0 +1,26 @@
+{
+  "name": "my-nodejs-basic-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo ok"
+  },
+  "engines": {
+    "node": "4.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryunosukef/my-nodejs-basic-auth.git"
+  },
+  "author": "ryunosukef",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryunosukef/my-nodejs-basic-auth/issues"
+  },
+  "homepage": "https://github.com/ryunosukef/my-nodejs-basic-auth#readme",
+  "dependencies": {
+    "basic-auth-connect": "^1.0.0",
+    "express": "^4.13.4"
+  }
+}
