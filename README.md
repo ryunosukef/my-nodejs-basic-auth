@@ -2,6 +2,8 @@
 
 ## 前提事項
 
+* slack
+
 * node
 * npm
 
