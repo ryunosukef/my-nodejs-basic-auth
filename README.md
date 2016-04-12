@@ -1,4 +1,5 @@
-# my-nodejs-basic-auth
+# nodejs-basic-auth
+## on HEROKU
 
 ---
 
@@ -17,26 +18,19 @@
 
 ---
 
-## 変数
+## HEROKU_APP_URL
 
-* GITHUB_ACCOUNT
-* GITHUB_REPO
-
-* HEROKU_ACCOUNT
-* HEROKU_APP
-
-* BASIC_AUTH_USERNAME
-* BASIC_AUTH_PASSWORD
-
-### 上記の変数を環境変数に設定する
+以下のURLでheroku.com上に公開することを想定し、`HEROKU_APP` の名称を決める
 
 ```
-$ export GITHUB_ACCOUNT="ryunosukef"
-$ export GITHUB_REPO="my-nodejs-basic-auth"
+<HEROKU_APP>.heroku.com
+```
+
+環境変数に`HEROKU_APP`を設定する
+
+```
 $ export HEROKU_APP="my-nodejs-basic-auth"
 ```
-
-ただし、BASIC_AUTH_XXXは、この時点では設定しない。
 
 ---
 
@@ -55,7 +49,6 @@ $ mkdir $HEROKU_APP
 $ cd $HEROKU_APP
 $ git init
 $ git config -l
-
 ```
 
 ---
@@ -99,7 +92,9 @@ About to write to /Users/ryunosukef/Documents/github/my-nodejs-basic-auth/packag
 
 
 Is this ok? (yes) yes
+```
 
+```
 $ cat package.json
 ```
 
@@ -137,12 +132,18 @@ express@4.13.4 node_modules/express
 ├── type-is@1.6.12 (media-typer@0.3.0, mime-types@2.1.10)
 ├── accepts@1.2.13 (negotiator@0.5.3, mime-types@2.1.10)
 └── send@0.13.1 (destroy@1.0.4, statuses@1.2.1, ms@0.7.1, mime@1.3.4, http-errors@1.3.1)
+```
 
+```
 $ npm install basic-auth-connect --save
 npm WARN package.json my-nodejs-basic-auth@1.0.0 No description
 npm WARN package.json my-nodejs-basic-auth@1.0.0 No README data
 basic-auth-connect@1.0.0 node_modules/basic-auth-connect
+```
 
+---
+
+```
 $ cat package.json
 {
   "name": "my-nodejs-basic-auth",
@@ -172,6 +173,7 @@ $ cat package.json
 
 ```
 $ mkdir public
+
 $ vim public/index.html
 <html>
   <head>
@@ -185,7 +187,7 @@ $ vim public/index.html
 
 ---
 
-## index.js
+## /index.js
 
 ```
 $ vim index.js
@@ -235,6 +237,8 @@ $ curl localhost:5000
 
 ## basic auth
 
+basic認証のためのユーザ名とパスワードを環境変数に設定する
+
 ```
 $ export BASIC_AUTH_USERNAME="user"
 $ export BASIC_AUTH_PASSWORD="pass"
@@ -264,7 +268,7 @@ $ curl localhost:5000 --user $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD
 
 ## Procfile
 
-heroku で、nodeを起動するための設定ファイル Procfileを用意する
+heroku でnodeを起動するための設定ファイル`Procfile`を作成する
 
 ```
 $ vim Procfile
@@ -275,14 +279,17 @@ web: node index.js
 
 ## git add/commit
 
-node_modules フォルダはgitの管理対象外とするため、
-.gitignoreに記載し、git statusの結果、node_modulesが表示されないことを確認する
+node_modules フォルダをgitの管理対象外とするように`.gitignore`を記載する
 
 ```
 $ echo "node_modules" >> .gitignore
 $ cat .gitignore
 node_modules
+```
 
+git statusの結果、node_modulesが表示されないことを確認する
+
+```
 $ git status
 On branch master
 
@@ -323,17 +330,25 @@ nothing to commit, working directory clean
 
 ---
 
-## heroku login/apps:create/open
+## heroku login
 
-herokuにデプロイするために環境を用意する
+herokuにloginする
 
 ```
 $ herou login
 Enter your Heroku credentials.
-Email: fujimoto.ryunosuke@gmail.com
+Email: <YOUR Email>
 Password (typing will be hidden):
-Logged in as fujimoto.ryunosuke@gmail.com
+Logged in as <YOUR Email>
+```
 
+---
+
+## heroku apps:create
+
+herokuにデプロイするために環境を用意する
+
+```
 $ heroku apps:create $HEROKU_APP
 Creating my-nodejs-basic-auth... done, stack is cedar-14
 https://my-nodejs-basic-auth.herokuapp.com/ | https://git.heroku.com/my-nodejs-basic-auth.git
@@ -341,9 +356,16 @@ https://my-nodejs-basic-auth.herokuapp.com/ | https://git.heroku.com/my-nodejs-b
 $ git remote -v
 heroku	https://git.heroku.com/my-nodejs-basic-auth.git (fetch)
 heroku	https://git.heroku.com/my-nodejs-basic-auth.git (push)
+```
 
+---
+
+## heroku open
+
+ブラウザを起動して、$HEROKU_APP.herokuapp.com にアクセスする
+
+```
 $ heroku open
-ブラウザが起動して、$HEROKU_APP.herokuapp.com にアクセスできる
 ```
 
 ---
@@ -449,9 +471,16 @@ remote:
 remote: Verifying deploy... done.
 To https://git.heroku.com/my-nodejs-basic-auth.git
  * [new branch]      master -> master
+```
 
+---
+
+## heroku open
+
+ブラウザを起動して、$HEROKU_APP.herokuapp.com にアクセスする
+
+```
 $ heroku open
-ブラウザが起動して、$HEROKU_APP.herokuapp.com にアクセスできる
 ```
 
 ---
@@ -463,10 +492,18 @@ heroku上にbasic認証のための環境変数を設定する
 ```
 $ heroku config:set BASIC_AUTH_USERNAME="xxx"
 $ heroku config:set BASIC_AUTH_PASSWORD="yyy"
+```
 
+---
+
+## heroku open
+
+ブラウザを起動して、$HEROKU_APP.herokuapp.com にアクセスする。
+
+> BASIC認証のダイアログが表示され、環境変数に設定した値を入力し、サイトを表示できる
+
+```
 $ heroku open
-ブラウザが起動して、$HEROKU_APP.herokuapp.com にアクセスできる
-さらに、BASIC認証のダイアログが表示され、環境変数に設定した値を入力し、サイトを表示できる
 ```
 
 ---
@@ -478,9 +515,13 @@ herokuの更新をslackに通知する
 * slackのchannel設定メニューで`Add an app or custom integration`を選択
 * <https://slack.com/apps/> の画面で検索ボックに`heroku`を入力
 * <https://slack.com/apps/A0F7VRF7E-heroku> の画面で、heroku integrationを設定する
-* 設定対象の`slack team`を選択
+* 通知先とする`slack team`を選択
 * `Add Configration`ボタンを押す
 * 通知先のchannelを選択
+
+---
+
+## heroku addons:create deployhooks
 
 ```
 $ heroku addons:create deployhooks:http --url https://hooks.slack.com/services/XXXX
@@ -488,13 +529,17 @@ Creating deployhooks-clean-97104... done, (free)
 Adding deployhooks-clean-97104 to my-nodejs-basic-auth... done
 Access the Deploy Hooks dashboard for this hook to finish setup.
 Use `heroku addons:docs deployhooks` to view documentation.
-
 ```
 
+## git push heroku master
+
 `git push heroku master`して、herokuに変更内容をpushする
-その後、heroku内でdeployが起動し、slackに通知されることを確認
 
 ```
 $ git commit -am "mod index.html"
 $ git push heroku master
 ```
+
+この後、heroku内でdeployが起動し、slackに通知されることを確認
+
+### Thanks.
