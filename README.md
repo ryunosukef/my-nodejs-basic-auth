@@ -17,19 +17,17 @@
 
 ---
 
-## HEROKU_APP
+## <HEROKU_APP>.heroku.com
 
-以下のURLでheroku.com上に公開することを想定し、`HEROKU_APP` の名称を決める
-
-```
-<HEROKU_APP>.heroku.com
-```
+heroku.com上に公開するため、`HEROKU_APP` の名称を決める
 
 環境変数に`HEROKU_APP`を設定する
 
 ```
 $ export HEROKU_APP="my-nodejs-basic-auth"
+
 $ echo $HEROKU_APP
+my-nodejs-basic-auth
 ```
 
 ---
@@ -102,7 +100,7 @@ $ cat package.json
 
 ## npm install
 
-expressとbasic-auth-connectをnpm installし、`package.json`に記載する
+expressとbasic-auth-connectをnpm installする
 
 ```
 $ npm install express --save
@@ -197,7 +195,7 @@ $ vim public/index.html
 
 ## /index.js
 
-nodejsで起動するindex.jsを作成する
+nodeで起動するindex.jsを作成する
 
 ```
 $ vim index.js
@@ -225,14 +223,14 @@ app.listen(app.get('port'), function() {
 
 ## node index.js
 
-<Terminal A>
+`Terminal A`
 ```
 $ node index.js
 Node app is running at localhost:5000
 
 ```
 
-<Terminal B>
+`Terminal B`
 ```
 $ curl localhost:5000
 <html>
@@ -245,7 +243,7 @@ $ curl localhost:5000
 </html>
 ```
 
-> <Terminal A> では、Ctrl-C で nodeを停止する
+> `Terminal A` では、Ctrl-C で nodeを停止する
 
 ---
 
@@ -253,7 +251,8 @@ $ curl localhost:5000
 
 basic認証のためのユーザ名とパスワードを環境変数に設定する
 
-<Terminal A>
+`Terminal A`
+
 ```
 $ export BASIC_AUTH_USERNAME="user"
 $ export BASIC_AUTH_PASSWORD="pass"
@@ -262,13 +261,15 @@ Node app is running at localhost:5000
 
 ```
 
-<Terminal B>
+`Terminal B`
+
 ```
 $ curl localhost:5000
 Unauthorized
 ```
 
-<Terminal B>
+`Terminal B`
+
 ```
 $ curl localhost:5000 --user $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD
 <html>
