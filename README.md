@@ -13,7 +13,7 @@
 * heroku.com (credit card)
 * heroku toolbelt
 
-* slack (<YOUR-team>.slack.com)
+* slack ($YOUR_TEAM.slack.com)
 
 ---
 
@@ -602,7 +602,7 @@ $ git commit -am "mod index.html"
 $ git push heroku master
 ```
 
-* check YOUR-team.slack.com
+* check $YOUR_TEAM.slack.com
 
 ___
 
