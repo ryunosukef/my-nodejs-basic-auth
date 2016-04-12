@@ -19,7 +19,7 @@
 
 ## ${HEROKU_APP}.herokuapp.com
 
-heroku上に公開するため、`HEROKU_APP` の名称を決める
+heroku上に公開する`HEROKU_APP`の名称を決める
 
 環境変数に`HEROKU_APP`を設定する
 
@@ -375,7 +375,7 @@ Password (typing will be hidden):
 Logged in as <YOUR Email>
 ```
 
----
+___
 
 ## heroku apps:create
 
@@ -391,7 +391,7 @@ heroku	https://git.heroku.com/my-nodejs-basic-auth.git (fetch)
 heroku	https://git.heroku.com/my-nodejs-basic-auth.git (push)
 ```
 
----
+___
 
 ## heroku open
 
@@ -401,7 +401,9 @@ $HEROKU_APP.herokuapp.com にアクセスする
 $ heroku open
 ```
 
----
+![heroku-open-first](heroku-open-first.png)
+
+___
 
 ## git push heroku
 
@@ -506,7 +508,7 @@ To https://git.heroku.com/my-nodejs-basic-auth.git
  * [new branch]      master -> master
 ```
 
----
+___
 
 ## heroku open
 
@@ -516,7 +518,9 @@ $HEROKU_APP.herokuapp.com にアクセスする
 $ heroku open
 ```
 
----
+![heroku-open-first](heroku-open-first.png)
+
+___
 
 ## heroku config:set
 
@@ -527,7 +531,7 @@ $ heroku config:set BASIC_AUTH_USERNAME="xxx"
 $ heroku config:set BASIC_AUTH_PASSWORD="yyy"
 ```
 
----
+___
 
 ## heroku open
 
@@ -538,6 +542,8 @@ $ heroku open
 ```
 
 * BASIC認証画面に、環境変数に設定した値を入力し、サイトを表示する
+
+![heroku-open-first](heroku-open-first.png)
 
 ---
 
