@@ -518,7 +518,7 @@ $HEROKU_APP.herokuapp.com にアクセスする
 $ heroku open
 ```
 
-![heroku-open-first](heroku-open-first.png)
+![heroku-open-first](heroku-open-hello.png)
 
 ___
 
@@ -543,7 +543,15 @@ $ heroku open
 
 * BASIC認証画面に、環境変数に設定した値を入力し、サイトを表示する
 
-![heroku-open-first](heroku-open-first.png)
+![heroku-open-first](heroku-open-basic-auth.png)
+
+___
+
+## Configrations!!
+
+___
+
+## Next, is slack
 
 ---
 
@@ -558,7 +566,7 @@ herokuの更新をslackに通知する
 * `Add Configration`ボタンを押す
 * 通知先のchannelを選択
 
----
+___
 
 ## heroku addons:create
 
@@ -570,7 +578,7 @@ Access the Deploy Hooks dashboard for this hook to finish setup.
 Use `heroku addons:docs deployhooks` to view documentation.
 ```
 
----
+___
 
 ## git push heroku master
 
@@ -585,7 +593,10 @@ $ git push heroku master
 
 * check YOUR-team.slack.com
 
+___
+
+## You've got HEROKU_APP with slack
 
 ---
 
-### Thanks.
+## Thanks.
