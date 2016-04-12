@@ -1,5 +1,5 @@
 # nodejs-basic-auth
-## on HEROKU
+## @ HEROKU
 
 ---
 
@@ -9,16 +9,15 @@
 * npm
 
 * git
-* github.com account
 
 * heroku.com (credit card)
 * heroku toolbelt
 
-* slack
+* slack (<YOUR-team>.slack.com)
 
 ---
 
-## HEROKU_APP_URL
+## HEROKU_APP
 
 以下のURLでheroku.com上に公開することを想定し、`HEROKU_APP` の名称を決める
 
@@ -30,13 +29,14 @@
 
 ```
 $ export HEROKU_APP="my-nodejs-basic-auth"
+$ echo $HEROKU_APP
 ```
 
 ---
 
 ## git init
 
-user.name, user.emailを、事前に設定できていることを確認する
+user.name, user.emailを設定していることを確認する
 
 ```
 $ git config -l
@@ -100,7 +100,9 @@ $ cat package.json
 
 ---
 
-## npm install express , basic-auth-connect
+## npm install
+
+expressとbasic-auth-connectをnpm installし、`package.json`に記載する
 
 ```
 $ npm install express --save
@@ -143,6 +145,10 @@ basic-auth-connect@1.0.0 node_modules/basic-auth-connect
 
 ---
 
+## package.json
+
+`dependencies` を確認する
+
 ```
 $ cat package.json
 {
@@ -171,6 +177,8 @@ $ cat package.json
 
 ## /public/index.html
 
+公開するhtmlを`public`フォルダ配下に作成する
+
 ```
 $ mkdir public
 
@@ -188,6 +196,8 @@ $ vim public/index.html
 ---
 
 ## /index.js
+
+nodejsで起動するindex.jsを作成する
 
 ```
 $ vim index.js
@@ -215,12 +225,14 @@ app.listen(app.get('port'), function() {
 
 ## node index.js
 
+<Terminal A>
 ```
 $ node index.js
 Node app is running at localhost:5000
 
 ```
 
+<Terminal B>
 ```
 $ curl localhost:5000
 <html>
@@ -233,12 +245,15 @@ $ curl localhost:5000
 </html>
 ```
 
+> <Terminal A> では、Ctrl-C で nodeを停止する
+
 ---
 
 ## basic auth
 
 basic認証のためのユーザ名とパスワードを環境変数に設定する
 
+<Terminal A>
 ```
 $ export BASIC_AUTH_USERNAME="user"
 $ export BASIC_AUTH_PASSWORD="pass"
@@ -247,11 +262,13 @@ Node app is running at localhost:5000
 
 ```
 
+<Terminal B>
 ```
 $ curl localhost:5000
 Unauthorized
 ```
 
+<Terminal B>
 ```
 $ curl localhost:5000 --user $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD
 <html>
@@ -279,7 +296,7 @@ web: node index.js
 
 ## git add/commit
 
-node_modules フォルダをgitの管理対象外とするように`.gitignore`を記載する
+node_modulesフォルダをgitの管理対象外とする
 
 ```
 $ echo "node_modules" >> .gitignore
@@ -287,7 +304,7 @@ $ cat .gitignore
 node_modules
 ```
 
-git statusの結果、node_modulesが表示されないことを確認する
+node_modulesが表示されないことを確認する
 
 ```
 $ git status
@@ -327,6 +344,13 @@ $ git status
 On branch master
 nothing to commit, working directory clean
 ```
+---
+
+## You've ready node files in git.
+
+---
+
+## Next, is
 
 ---
 
