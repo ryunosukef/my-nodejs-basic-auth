@@ -32,6 +32,14 @@ my-nodejs-basic-auth
 
 ---
 
+## git
+
+## heroku
+
+## slack
+
+---
+
 ## git init
 
 user.name, user.emailを設定していることを確認する
@@ -49,7 +57,7 @@ $ git init
 $ git config -l
 ```
 
----
+___
 
 ## npm init
 
@@ -96,7 +104,7 @@ Is this ok? (yes) yes
 $ cat package.json
 ```
 
----
+___
 
 ## npm install
 
@@ -141,7 +149,7 @@ npm WARN package.json my-nodejs-basic-auth@1.0.0 No README data
 basic-auth-connect@1.0.0 node_modules/basic-auth-connect
 ```
 
----
+___
 
 ## package.json
 
@@ -171,7 +179,7 @@ $ cat package.json
 }
 ```
 
----
+___
 
 ## /public/index.html
 
@@ -191,7 +199,7 @@ $ vim public/index.html
 </html>
 ```
 
----
+___
 
 ## /index.js
 
@@ -219,7 +227,7 @@ app.listen(app.get('port'), function() {
 })
 ```
 
----
+___
 
 ## node index.js
 
@@ -245,7 +253,7 @@ $ curl localhost:5000
 
 * `Terminal A` では、Ctrl-C で nodeを停止する
 
----
+___
 
 ## basic auth
 
@@ -261,7 +269,7 @@ Node app is running at localhost:5000
 
 ```
 
----
+___
 
 ## basic auth
 
@@ -288,7 +296,7 @@ $ curl localhost:5000 --user $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD
 </html>
 ```
 
----
+___
 
 ## Procfile
 
@@ -299,7 +307,7 @@ $ vim Procfile
 web: node index.js
 ```
 
----
+___
 
 ## .gitignore
 
@@ -331,7 +339,7 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
----
+___
 
 ## git add/commit
 
@@ -353,13 +361,15 @@ $ git status
 On branch master
 nothing to commit, working directory clean
 ```
----
+
+___
 
 ## You've ready node files in git.
 
----
+___
 
 ## Next, is
+# Heroku
 
 ---
 
