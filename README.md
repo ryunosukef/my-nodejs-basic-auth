@@ -557,11 +557,12 @@ $ heroku open
 
 ___
 
-## Configrations!!
+## Congratulations!!
 
 ___
 
-## Next, is slack
+## Next, is
+# slack
 
 ---
 
@@ -605,7 +606,7 @@ $ git push heroku master
 
 ___
 
-## You've got HEROKU_APP with slack
+## You've got HEROKU_APP on slack
 
 ---
 
