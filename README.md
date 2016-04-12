@@ -243,7 +243,7 @@ $ curl localhost:5000
 </html>
 ```
 
-> `Terminal A` では、Ctrl-C で nodeを停止する
+* `Terminal A` では、Ctrl-C で nodeを停止する
 
 ---
 
@@ -261,14 +261,20 @@ Node app is running at localhost:5000
 
 ```
 
-`Terminal B`
+---
+
+## basic auth
+
+basic認証が有効になっていることを確認する
+
+`Terminal B` : basic認証情報がないためNG
 
 ```
 $ curl localhost:5000
 Unauthorized
 ```
 
-`Terminal B`
+`Terminal B` : basic認証情報があるのでOK
 
 ```
 $ curl localhost:5000 --user $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD
@@ -286,7 +292,7 @@ $ curl localhost:5000 --user $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD
 
 ## Procfile
 
-heroku でnodeを起動するための設定ファイル`Procfile`を作成する
+heroku でnodeを起動するための設定ファイルを作成する
 
 ```
 $ vim Procfile
@@ -295,7 +301,7 @@ web: node index.js
 
 ---
 
-## git add/commit
+## .gitignore
 
 node_modulesフォルダをgitの管理対象外とする
 
@@ -326,6 +332,8 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 ---
+
+## git add/commit
 
 Untracked filesをadd, commitする
 
@@ -387,7 +395,7 @@ heroku	https://git.heroku.com/my-nodejs-basic-auth.git (push)
 
 ## heroku open
 
-ブラウザを起動して、$HEROKU_APP.herokuapp.com にアクセスする
+$HEROKU_APP.herokuapp.com にアクセスする
 
 ```
 $ heroku open
@@ -502,7 +510,7 @@ To https://git.heroku.com/my-nodejs-basic-auth.git
 
 ## heroku open
 
-ブラウザを起動して、$HEROKU_APP.herokuapp.com にアクセスする
+$HEROKU_APP.herokuapp.com にアクセスする
 
 ```
 $ heroku open
@@ -523,9 +531,9 @@ $ heroku config:set BASIC_AUTH_PASSWORD="yyy"
 
 ## heroku open
 
-ブラウザを起動して、$HEROKU_APP.herokuapp.com にアクセスする。
+$HEROKU_APP.herokuapp.com にアクセスする。
 
-> BASIC認証のダイアログが表示され、環境変数に設定した値を入力し、サイトを表示できる
+* BASIC認証のダイアログが表示され、環境変数に設定した値を入力し、サイトを表示できる
 
 ```
 $ heroku open
@@ -546,7 +554,7 @@ herokuの更新をslackに通知する
 
 ---
 
-## heroku addons:create deployhooks
+## heroku addons:create
 
 ```
 $ heroku addons:create deployhooks:http --url https://hooks.slack.com/services/XXXX
@@ -556,15 +564,21 @@ Access the Deploy Hooks dashboard for this hook to finish setup.
 Use `heroku addons:docs deployhooks` to view documentation.
 ```
 
+---
+
 ## git push heroku master
 
-`git push heroku master`して、herokuに変更内容をpushする
+herokuに変更内容をpushする
 
 ```
+$ vim public/index.html
+
 $ git commit -am "mod index.html"
 $ git push heroku master
 ```
 
 この後、heroku内でdeployが起動し、slackに通知されることを確認
+
+---
 
 ### Thanks.
