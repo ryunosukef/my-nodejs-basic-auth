@@ -1,5 +1,7 @@
 # my-nodejs-basic-auth
 
+---
+
 ## 前提事項
 
 * node > v4.4.1
@@ -12,6 +14,8 @@
 * heroku toolbelt
 
 * slack
+
+---
 
 ## 変数
 
@@ -34,6 +38,8 @@ $ export HEROKU_APP="my-nodejs-basic-auth"
 
 ただし、BASIC_AUTH_XXXは、この時点では設定しない。
 
+---
+
 ## git init
 
 user.name, user.emailを、事前に設定できていることを確認する
@@ -51,6 +57,8 @@ $ git init
 $ git config -l
 
 ```
+
+---
 
 ## npm init
 
@@ -94,6 +102,8 @@ Is this ok? (yes) yes
 
 $ cat package.json
 ```
+
+---
 
 ## npm install express , basic-auth-connect
 
@@ -156,6 +166,8 @@ $ cat package.json
 }
 ```
 
+---
+
 ## /public/index.html
 
 ```
@@ -170,6 +182,8 @@ $ vim public/index.html
   </body>
 </html>
 ```
+
+---
 
 ## index.js
 
@@ -195,6 +209,8 @@ app.listen(app.get('port'), function() {
 })
 ```
 
+---
+
 ## node index.js
 
 ```
@@ -214,6 +230,8 @@ $ curl localhost:5000
   </body>
 </html>
 ```
+
+---
 
 ## basic auth
 
@@ -242,6 +260,7 @@ $ curl localhost:5000 --user $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD
 </html>
 ```
 
+---
 
 ## Procfile
 
@@ -251,6 +270,8 @@ heroku で、nodeを起動するための設定ファイル Procfileを用意す
 $ vim Procfile
 web: node index.js
 ```
+
+---
 
 ## git add/commit
 
@@ -279,6 +300,8 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
+---
+
 Untracked filesをadd, commitする
 
 ```
@@ -297,6 +320,8 @@ $ git status
 On branch master
 nothing to commit, working directory clean
 ```
+
+---
 
 ## heroku login/apps:create/open
 
@@ -320,6 +345,8 @@ heroku	https://git.heroku.com/my-nodejs-basic-auth.git (push)
 $ heroku open
 ブラウザが起動して、$HEROKU_APP.herokuapp.com にアクセスできる
 ```
+
+---
 
 ## git push heroku
 
@@ -427,6 +454,8 @@ $ heroku open
 ブラウザが起動して、$HEROKU_APP.herokuapp.com にアクセスできる
 ```
 
+---
+
 ## heroku config:set
 
 heroku上にbasic認証のための環境変数を設定する
@@ -439,6 +468,8 @@ $ heroku open
 ブラウザが起動して、$HEROKU_APP.herokuapp.com にアクセスできる
 さらに、BASIC認証のダイアログが表示され、環境変数に設定した値を入力し、サイトを表示できる
 ```
+
+---
 
 ## heroku slack integration
 
