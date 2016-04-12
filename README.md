@@ -17,9 +17,9 @@
 
 ---
 
-## <HEROKU_APP>.heroku.com
+## ${HEROKU_APP}.herokuapp.com
 
-heroku.com上に公開するため、`HEROKU_APP` の名称を決める
+heroku上に公開するため、`HEROKU_APP` の名称を決める
 
 環境変数に`HEROKU_APP`を設定する
 
@@ -249,7 +249,7 @@ $ curl localhost:5000
 
 ## basic auth
 
-basic認証のためのユーザ名とパスワードを環境変数に設定する
+basic認証のユーザ名とパスワードを環境変数に設定する
 
 `Terminal A`
 
@@ -531,13 +531,13 @@ $ heroku config:set BASIC_AUTH_PASSWORD="yyy"
 
 ## heroku open
 
-$HEROKU_APP.herokuapp.com にアクセスする。
-
-* BASIC認証のダイアログが表示され、環境変数に設定した値を入力し、サイトを表示できる
+$HEROKU_APP.herokuapp.com にアクセスする
 
 ```
 $ heroku open
 ```
+
+* BASIC認証画面に、環境変数に設定した値を入力し、サイトを表示する
 
 ---
 
@@ -568,7 +568,7 @@ Use `heroku addons:docs deployhooks` to view documentation.
 
 ## git push heroku master
 
-herokuに変更内容をpushする
+herokuに変更内容をpushした後、heroku内でdeployが起動し、slackに通知されることを確認する
 
 ```
 $ vim public/index.html
@@ -577,7 +577,8 @@ $ git commit -am "mod index.html"
 $ git push heroku master
 ```
 
-この後、heroku内でdeployが起動し、slackに通知されることを確認
+* check YOUR-team.slack.com
+
 
 ---
 
